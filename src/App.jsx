@@ -9,11 +9,11 @@ export default function App() {
     const strX = ["Willy the Goblin", "Big Daddy", "Father Christmas"]; 
     const strY = ["the soup kitchen", "Disneyland", "the White House"]; 
     const strZ = ["spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away"]; 
-    const showStory = false;
+    const [showStory, setShowStory] = useState(false);
     const [xItem, setX] = useState(strX[0]);
     const [yItem, setY] = useState(strY[0]);
     const [zItem, setZ] = useState(strZ[0]);
-    const ukus = "us";
+    const [ukus, setUkus] = useState("us");
     const [name, setName] = useState("Bob");
 
     function handleButton(event) {
@@ -24,13 +24,13 @@ export default function App() {
       setZ(randomValueFromArray(strZ));
 
       const nameField = event.target.elements.customName;
-      if (nameField != null) setName(nameField.value);
+      nameField.value != "" ? setName(nameField.value) : setName("Bob");
 
-      //showStory = true;
+      setShowStory(true);
     }
 
     function handleCheck() {
-      //ukus === "us" ? ukus = "uk" : ukus = "us";
+      ukus === "us" ? setUkus("uk") : setUkus("us");
     }
 
     return (
