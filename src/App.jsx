@@ -16,7 +16,7 @@ export default function App() {
     const [ukus, setUkus] = useState("us");
     const [name, setName] = useState("Bob");
 
-    function handleButton(event) {
+    function handleFormSubmit(event) {
       event.preventDefault();
 
       setX(randomValueFromArray(strX));
@@ -35,7 +35,7 @@ export default function App() {
 
     return (
       <>
-      <form onSubmit={handleButton}>
+      <form onSubmit={handleFormSubmit}>
         <div>
           <label htmlFor="customname">Enter custom name:</label>
           <input type="text" placeholder="" name="customName" className="customName" />
@@ -52,9 +52,9 @@ export default function App() {
         </form>
         {showStory && (
           <p>
-            It was {ukus === "us" ? <>94 fahrenheit</> : <>{Math.round(5/9 * (94 - 32))} centigrade</>} outside, so {xItem} went for a walk. When they
+            It was {ukus === "us" ? "94 fahrenheit" : <>{Math.round(5/9 * (94 - 32))} centigrade</>} outside, so {xItem} went for a walk. When they
             got to {yItem}, they stared in horror for a few moments, then {zItem}. 
-            {name} saw the whole thing, but was not surprised — {xItem} weighs {ukus === "us" ? <>300 pounds</> : <>{Math.round(300/14)} stone</>}
+            {name} saw the whole thing, but was not surprised — {xItem} weighs {ukus === "us" ? "300 pounds" : <>{Math.round(300/14)} stone</>}
             , and it was a hot day.
           </p>
         )}
